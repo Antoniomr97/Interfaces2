@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PriceSlice</title>
+    <link
+      rel="icon"
+      href="../assets/images/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="PriceSlice: compara precios y encuentra las mejores ofertas."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerLeft">
+        <div class="logo">
+          <img
+            class="logoImg"
+            src="../assets/images/logo/logo.png"
+            alt="logoPriceSlice"
+          />
+        </div>
+      </div>
+      <div class="headerRight">
+        <input
+          type="text"
+          placeholder="Busqueda"
+          name="gameInputGameHeader"
+          id="gameInputGameHeader"
+          class="gameInputGameHeader"
+        />
+        <div class="btnHeaderGames">Favoritos</div>
+        <div class="btnHeaderGames">
+          Vermillion
+          <img
+            src="../assets/images/icons/person.svg"
+            alt="User"
+            class="userIco"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="gamesMain">
+      <section class="gamesSection">
+        <div class="gamesGrid" id="gamesGrid">
+          <!-- Este div estará vacio, así podremos rellenarlo con las tarjetas que iremos creando con el DOM en js -->
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footerContent">
+        <p>©PriceSlice 2026</p>
+        <p class="contactFooterBtn"><a href="">Contactanos</a></p>
+      </div>
+      <div class="footerIcos">
+        <img
+          src="../assets/images/icons/discord.svg"
+          alt="Discord"
+          class="discordIco"
+        />
+        <img
+          src="../assets/images/icons/instagram.svg"
+          alt="Instagram"
+          class="instagramIco"
+        />
+        <img
+          src="../assets/images/icons/twitter-x.svg"
+          alt="Twitter-X"
+          class="twitterIco"
+        />
+      </div>
+    </footer>
+  </body>
+</html>
