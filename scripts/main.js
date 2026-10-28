@@ -25,12 +25,19 @@ async function loadGames() {
       const card = document.createElement("article");
       card.classList.add("gameCard");
 
+      // Contenedor de la imagen
+      const imageContainer = document.createElement("div");
+      imageContainer.classList.add("gameImageContainer");
+
       // Imagen
       const image = document.createElement("img");
       image.classList.add("gameImage");
       image.src = game.image_url;
       image.alt = `Portada de ${game.name}`;
       image.loading = "lazy";
+
+      // Introducir la imagen en el contenedor
+      imageContainer.appendChild(image);
 
       // Contenido de la tarjeta
       const content = document.createElement("div");
@@ -69,7 +76,7 @@ async function loadGames() {
 
       // Montar la tarjeta
       content.append(title, price, platforms);
-      card.append(image, content);
+      card.append(imageContainer, content);
       gamesGrid.appendChild(card);
     });
   } catch (error) {

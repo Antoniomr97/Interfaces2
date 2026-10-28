@@ -148,19 +148,25 @@ header {
 }
 
 .logo {
-  height: 4.5rem;
+  min-width: 0;
+  max-width: 100%;
+  cursor: pointer;
+
+  padding-left: var(--spacing-4);
+}
+
+.logo a {
   display: flex;
   align-items: center;
-  cursor: pointer;
+  min-width: 0;
 }
 
 .logoImg {
   display: block;
-  height: 100%;
+  width: 100%;
   max-width: 15rem;
-  width: auto;
+  height: auto;
   object-fit: contain;
-  padding-left: var(--spacing-5);
 }
 
 .headerRight {
@@ -470,6 +476,28 @@ footer {
   transform: scale(1.1);
 }
 
+/* Sección que solo aparecera en moviles, creada para media */
+
+.headerMenuIcon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2);
+  /* background-color: var(--secondary-main-color); */
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+.menuIco {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+}
+
+/* Seguimos con estilos de la segunda página */
+
 .gamesMain {
   width: 100%;
   min-width: 0;
@@ -516,12 +544,18 @@ footer {
   border-color: var(--border-color-hover);
 }
 
+.gameImageContainer {
+  padding: var(--spacing-4);
+  background-color: var(--cards-color);
+  border-radius: var(--radius-lg);
+}
+
 .gameImage {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: auto;
   object-fit: contain;
-  background-color: var(--secondary-background);
+  border-radius: var(--radius-md);
 }
 
 .gameCardContent {
@@ -571,7 +605,7 @@ footer {
 /* Pantallas estrechas */
 @media (max-width: 48rem) {
   body {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   header {
@@ -581,11 +615,22 @@ footer {
   }
 
   .logo {
-    height: 4.5rem;
+    height: auto;
+    flex: 0 1 auto;
+    min-width: 0;
   }
 
   .logoImg {
+    width: 100%;
+    max-width: clamp(8rem, 35vw, 12rem);
+  }
+
+  .logoImg {
+    display: block;
+    width: 100%;
     max-width: 15rem;
+    height: auto;
+    object-fit: contain;
   }
 
   .btnHeaderHero {
@@ -629,8 +674,64 @@ footer {
   .footerIcos img {
     height: 1.25rem;
   }
-}
 
+  /* Añadimos el cambio en el menu del header */
+
+  /* Hacemos que no se vea el original */
+
+  .gameTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .gamePrice {
+    font-size: var(--font-size-base);
+  }
+
+  .gameInputGameHeader {
+    font-size: var(--font-size-sm);
+  }
+
+  .btnHeaderGames {
+    font-size: var(--font-size-sm);
+  }
+  .headerButton {
+    display: none;
+  }
+
+  .headerMenuIcon {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-2);
+    min-width: 0;
+  }
+
+  .gameInputGameHeader {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .gameInputGameHeader {
+    padding: var(--spacing-1) var(--spacing-2);
+  }
+
+  .gamesSection {
+    width: 70%;
+    max-width: 90rem;
+    padding-top: var(--spacing-12);
+    padding-bottom: var(--spacing-8);
+  }
+
+  .gamesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-2);
+  }
+}
 /* Pantallas pequeñas */
 @media (max-width: 30rem) {
   header {
@@ -639,11 +740,14 @@ footer {
   }
 
   .logo {
-    height: 3.5rem;
+    height: auto;
+    flex: 0 1 auto;
+    min-width: 0;
   }
 
   .logoImg {
-    max-width: 15rem;
+    width: 100%;
+    max-width: clamp(7rem, 32vw, 9rem);
   }
 
   .btnHeaderHero {
@@ -720,5 +824,38 @@ footer {
 
   .gamesGrid {
     gap: var(--spacing-4);
+  }
+  .headerButton {
+    display: none;
+  }
+
+  .headerMenuIcon {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-2);
+    min-width: 0;
+  }
+
+  .gameInputGameHeader {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .gameInputGameHeader {
+    padding: var(--spacing-1) var(--spacing-2);
+  }
+  .gamesSection {
+    width: 100%;
+    max-width: 90rem;
+  }
+  .gamesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-2);
   }
 }
