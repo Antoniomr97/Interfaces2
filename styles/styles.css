@@ -554,7 +554,7 @@ footer {
   gap: var(--spacing-2);
 }
 
-.platformBadge {
+.platformSpan {
   padding: var(--spacing-1) var(--spacing-2);
 
   color: var(--secondary-main-color);

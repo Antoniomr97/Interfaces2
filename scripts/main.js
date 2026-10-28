@@ -55,14 +55,14 @@ async function loadGames() {
 
       if (game.is_ps4 === 1) {
         const ps4 = document.createElement("span");
-        ps4.classList.add("platformBadge");
+        ps4.classList.add("platformSpan");
         ps4.textContent = "PS4";
         platforms.appendChild(ps4);
       }
 
       if (game.is_ps5 === 1) {
         const ps5 = document.createElement("span");
-        ps5.classList.add("platformBadge");
+        ps5.classList.add("platformSpan");
         ps5.textContent = "PS5";
         platforms.appendChild(ps5);
       }
