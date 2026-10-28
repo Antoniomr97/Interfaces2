@@ -1,6 +1,7 @@
 :root {
   /* --- Colores --- */
 
+  /*   -------------  ESTILOS PARA SOBREMESA --------------*/
   /* Fondo */
 
   --main-background: #0a0d14;
@@ -105,27 +106,34 @@
 body {
   padding: 0;
   margin: 0;
-}
 
-body {
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  /* height: 100vh;
+  height: 100dvh; */
   display: flex;
   flex-direction: column;
   font-family: var(--font-jost);
+
   background-image: url("../assets/images/background/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 header {
   width: 100%;
-  height: 10%;
-  flex: 0 0 10%;
+  min-height: 10vh;
+  /* height: 10%; */
+  /* flex: 0 0 10%; */
+  flex: 0 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background-color: var(--soft-main-background);
 }
 
@@ -136,7 +144,7 @@ header {
 }
 
 .logo {
-  height: 80%;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -145,6 +153,7 @@ header {
 .logoImg {
   display: block;
   height: 100%;
+  max-width: 15rem;
   width: auto;
   object-fit: contain;
   padding-left: var(--spacing-5);
@@ -182,20 +191,33 @@ header {
 
 main {
   width: 100%;
+  min-width: 0;
   /* height: 80%; sin flex*/
-  flex: 0 0 80%;
-  background-color: var(--soft-secondary-background);
+  flex: 1 0 auto;
+
+  padding: var(--spacing-8) 5%;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: var(--soft-secondary-background);
+  background-size: cover;
 }
 
 .mainContent {
-  width: min(90%, 720px);
+  width: 90%;
+  max-width: 45rem;
   height: auto;
-  padding: var(--spacing-8);
+  /* padding: var(--spacing-8); */
+  padding: clamp(
+    1rem,
+    4vw,
+    2rem
+  ); /* Pensaba que solo funcionaba en texto pero probandolo me gusta más el resultado aquí para el responsive, si es mala practica espero su feedback caballero*/
   border-radius: var(--radius-xl);
   background-color: var(--xsoft-secondary-background);
+  overflow-wrap: anywhere;
 }
 
 .mainText {
@@ -254,7 +276,7 @@ main {
   border-radius: var(--radius-md);
 
   font-family: var(--font-jost);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
 
   background-color: var(--main-color);
@@ -275,15 +297,53 @@ main {
 
 footer {
   width: 100%;
+  min-height: 10vh;
   /* Le pongo tambien su tamaño sin flex porque me ha dado varios fallos al no ponerlo*/
-  height: 10%;
-  flex: 0 0 10%;
+  /* height: 10%; */
+  /* flex: 0 0 10%; */
+  flex: 0 0 auto;
   background-color: var(--soft-main-background);
   color: var(--main-text-color);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: var(--spacing-5);
+  gap: var(--spacing-4);
+
+  padding: var(--spacing-3) var(--spacing-6);
+
+  background-color: var(--soft-main-background);
+  color: var(
+    --main-text-color
+  ); /* Aquí puse 5 pero lo pase a la 6 porque queria que estuviera un poco más alineado con el logo de la página*/
+  /* padding: 0 var(--spacing-5); */
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-5);
+
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.footerContent p {
+  margin: 0;
+}
+
+.contactFooterBtn {
+  white-space: nowrap;
+}
+
+.contactFooterBtn a {
+  color: var(--main-text-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contactFooterBtn a:hover {
+  color: var(--hover-color);
 }
 
 .footerIcos {
@@ -291,24 +351,174 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 10%;
+
+  gap: var(--spacing-4);
+  height: auto;
+  width: auto;
+  flex: 0 0 auto;
 }
 
 .footerIcos img {
-  height: 30%;
+  display: block;
+  flex: 0 0 auto;
+
+  height: 1.5rem;
   width: auto;
-  padding: 0 var(--spacing-3);
-  stroke: var(--main-text-color);
+  padding: 0;
+  object-fit: contain;
+
   cursor: pointer;
   transition: transform var(--transition-normal);
 }
 
 .footerIcos img:hover {
-  height: 30%;
-  width: auto;
-  padding: 0 var(--spacing-3);
-  stroke: var(--main-text-color);
-  cursor: pointer;
   transform: scale(1.1);
+}
+
+/*   -------------  ESTILOS PARA MOVIL --------------*/
+
+/* Pantallas estrechas */
+@media (max-width: 48rem) {
+  body {
+    background-attachment: scroll;
+  }
+
+  header {
+    min-height: 4.5rem;
+    padding: var(--spacing-2) var(--spacing-4);
+    gap: var(--spacing-2);
+  }
+
+  .logo {
+    height: 4.5rem;
+  }
+
+  .logoImg {
+    max-width: 15rem;
+  }
+
+  .btnHeaderHero {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-2) var(--spacing-3);
+    margin-right: 0;
+  }
+
+  main {
+    padding: var(--spacing-6) 4%;
+  }
+
+  .mainContent {
+    width: 100%;
+    max-width: 45rem;
+    padding: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .mainText {
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+  }
+
+  .secondaryText {
+    font-size: var(--font-size-lg);
+  }
+
+  footer {
+    min-height: auto;
+    padding: var(--spacing-3) var(--spacing-4);
+    gap: var(--spacing-3);
+  }
+
+  .footerContent {
+    gap: var(--spacing-3);
+  }
+
+  .footerIcos {
+    gap: var(--spacing-2);
+  }
+
+  .footerIcos img {
+    height: 1.25rem;
+  }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 30rem) {
+  header {
+    min-height: 3.75rem;
+    padding: var(--spacing-2) var(--spacing-2);
+  }
+
+  .logo {
+    height: 3.5rem;
+  }
+
+  .logoImg {
+    max-width: 15rem;
+  }
+
+  .btnHeaderHero {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-2);
+  }
+
+  main {
+    padding: var(--spacing-4) var(--spacing-3);
+  }
+
+  .mainContent {
+    width: 100%;
+    padding: var(--spacing-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .mainText {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .secondaryText {
+    font-size: var(--font-size-base);
+  }
+
+  .emailInputMainContent {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--spacing-3);
+  }
+
+  .btnMainHero {
+    max-width: 100%;
+    font-size: var(--font-size-base);
+    padding: 0.7em 1em;
+  }
+
+  footer {
+    flex-wrap: wrap;
+    min-height: auto;
+    padding: var(--spacing-3);
+    gap: var(--spacing-2) var(--spacing-3);
+  }
+
+  .footerContent {
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: var(--spacing-2);
+  }
+
+  .footerContent p {
+    font-size: var(--font-size-sm);
+  }
+
+  .contactFooterBtn {
+    white-space: nowrap;
+  }
+
+  .footerIcos {
+    width: auto;
+    margin-left: auto;
+    gap: var(--spacing-2);
+  }
+
+  .footerIcos img {
+    height: 1.125rem;
+  }
 }
