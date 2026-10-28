@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Clair Obscur: Expedition 33",
+    "price": 49.99,
+    "is_ps4": 1,
+    "is_ps5": 1,
+    "image_url": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2217/e5833a53529ff9879e87689f1e8b04d45ba7e6c97fa791e2.png"
+  },
+  {
+    "name": "Elden Ring",
+    "price": 59.99,
+    "is_ps4": 1,
+    "is_ps5": 1,
+    "image_url": "https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/0Jz6uJLxOK7JOMMfcfHFBi1D.png"
+  },
+  {
+    "name": "The Witcher 3: Wild Hunt",
+    "price": 49.99,
+    "is_ps4": 1,
+    "is_ps5": 1,
+    "image_url": "https://image.api.playstation.com/vulcan/ap/rnd/202609/1711/d851895118a16d07706b91e7b69b53ce27531269cad5e968.png"
+  },
+  {
+    "name": "DARK SOULS™: REMASTERED",
+    "price": 39.99,
+    "is_ps4": 1,
+    "is_ps5": 0,
+    "image_url": "https://image.api.playstation.com/cdn/EP0700/CUSA08495_00/COYF3JBI46ftkG7tIdTjQg0v9aZ2378N.png"
+  },
+  {
+    "name": "God of War III",
+    "price": 19.99,
+    "is_ps4": 1,
+    "is_ps5": 0,
+    "image_url": "https://image.api.playstation.com/vulcan/img/rnd/202011/0711/p8JCvA8692BICXAPoyylh7ed.png"
+  },
+  {
+    "name": "Baldur's Gate 3",
+    "price": 69.99,
+    "is_ps4": 0,
+    "is_ps5": 1,
+    "image_url": "https://image.api.playstation.com/vulcan/ap/rnd/202302/2321/ba706e54d68d10a0eb6ab7c36cdad9178c58b7fb7bb03d28.png"
+  }
+]
