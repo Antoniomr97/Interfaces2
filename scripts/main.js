@@ -1,4 +1,42 @@
+// Obtenemos los elementos
+
+// Para la página principal de juegos
+
 const gamesGrid = document.querySelector("#gamesGrid");
+
+// Para el toogle de cambio entre luz y oscuridad
+
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeIconS = document.getElementById("themeIconS");
+
+// Investigando como se hace el cambio de tema, he encontrado que se puede comprobar el que está usando el cliente por su localStorage
+
+const usedTheme = localStorage.getItem("theme");
+
+// Le añadimos al html la clase theme-light por si tenemos que cambiar de modo
+
+if (usedTheme === "light") {
+  document.documentElement.classList.add("theme-light");
+}
+
+// Actualizamos la imagen según el tema actual
+
+if (themeIcon) {
+  if (document.documentElement.classList.contains("theme-light")) {
+    themeIcon.src = "assets/images/icons/moon.svg";
+  } else {
+    themeIcon.src = "assets/images/icons/sun.svg";
+  }
+}
+
+if (themeIconS) {
+  if (document.documentElement.classList.contains("theme-light")) {
+    themeIconS.src = "../assets/images/icons/moon.svg";
+  } else {
+    themeIconS.src = "../assets/images/icons/sun.svg";
+  }
+}
 
 async function loadGames() {
   try {
@@ -21,34 +59,39 @@ async function loadGames() {
     gamesGrid.replaceChildren();
 
     games.forEach((game) => {
-      // Tarjeta
+      // Creamos un articulo que será cada tarjeta
+
       const card = document.createElement("article");
       card.classList.add("gameCard");
 
-      // Contenedor de la imagen
+      // Por el problema que ya descubrimos con la imagen en diferentes situaciones he decidido trabajar con un contenedor previo
+
       const imageContainer = document.createElement("div");
       imageContainer.classList.add("gameImageContainer");
 
-      // Imagen
+      // Añadimos la imagen con la url que obtenemos
+
       const image = document.createElement("img");
       image.classList.add("gameImage");
       image.src = game.image_url;
       image.alt = `Portada de ${game.name}`;
       image.loading = "lazy";
 
-      // Introducir la imagen en el contenedor
+      // Ahora si añadimos la imagen al div que creamos para ella
+
       imageContainer.appendChild(image);
 
-      // Contenido de la tarjeta
+      // Creamos otro div para su contenido (disculpa tanto comentario es para poder guiarme ya que se está haciendo muy extenso el desarrollo)
+
       const content = document.createElement("div");
       content.classList.add("gameCardContent");
 
-      // Nombre
+      // Aquí ponemos sus diferentes valores como Nombre y Precio
+
       const title = document.createElement("h2");
       title.classList.add("gameTitle");
       title.textContent = game.name;
 
-      // Precio
       const price = document.createElement("p");
       price.classList.add("gamePrice");
       price.textContent = Number(game.price).toLocaleString("es-ES", {
@@ -56,7 +99,8 @@ async function loadGames() {
         currency: "EUR",
       });
 
-      // Plataformas disponibles
+      // Aquí obtenemos las plataformas y como puede tener varias vamos añadiendo las que tenga y le generamos un span para que se pongan en la misma línea.
+
       const platforms = document.createElement("div");
       platforms.classList.add("gamePlatforms");
 
@@ -74,12 +118,15 @@ async function loadGames() {
         platforms.appendChild(ps5);
       }
 
-      // Montar la tarjeta
+      // Aquí ya añadimos todo al contenedor de la tarjeta.
+      //Esto lo hago para ir preparandome para la lógica del proyecto final.
+
       content.append(title, price, platforms);
       card.append(imageContainer, content);
       gamesGrid.appendChild(card);
     });
   } catch (error) {
+    /* Aquí nos cubrimos de los errores, lo cual me viene bien ya que al principio no conseguía que cargaran y solo era por el navegador, que para que funcionara tenía que ponerlo en live server*/
     console.error("Error al cargar los juegos:", error);
     gamesGrid.textContent = "No se han podido cargar los juegos.";
   }
@@ -87,4 +134,51 @@ async function loadGames() {
 
 if (gamesGrid) {
   loadGames();
+}
+
+// Creamos función para añadir el cambio a modo claro
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    // Cuando se le clicke se cambia de luz a oscuridad añadiendo y quitando la clase
+
+    document.documentElement.classList.toggle("theme-light");
+
+    // Comprobamos el tema que tiene
+
+    const isLight = document.documentElement.classList.contains("theme-light");
+
+    // Guardamos el tema seleccionado en localStorage
+
+    if (isLight) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+
+    // Cambiamos la imagen del botón según el tema
+
+    if (themeIcon) {
+      if (isLight) {
+        themeIcon.src = "assets/images/icons/moon.svg";
+      } else {
+        themeIcon.src = "assets/images/icons/sun.svg";
+      }
+    }
+
+    // Actualizamos la descripción accesible del botón
+    if (isLight) {
+      themeToggle.setAttribute("aria-label", "Cambiar a modo oscuro");
+    } else {
+      themeToggle.setAttribute("aria-label", "Cambiar a modo claro");
+    }
+
+    if (themeIconS) {
+      if (isLight) {
+        themeIconS.src = "../assets/images/icons/moon.svg";
+      } else {
+        themeIconS.src = "../assets/images/icons/sun.svg";
+      }
+    }
+  });
 }

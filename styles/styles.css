@@ -29,14 +29,14 @@
   --secondary-text-color: #a1abbc;
   --muted-text-color: #737f93;
 
-  /* Estados */
+  /* Estados para los inputs */
 
   --success-color: #22c55e;
   --error-color: #ef4444;
   --warning-color: #f6b74b;
   --info-color: #38bdf8;
 
-  /* Bordes */
+  /* Colores para los bordes */
 
   --border-color: #303a4c;
   --border-color-hover: #46536a;
@@ -97,6 +97,59 @@
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
   --transition-slow: 350ms ease;
+}
+
+/* Añadimos el modo claro */
+
+:root.theme-light {
+  --main-background: #f2f1ed;
+  --soft-main-background: rgb(242 241 237 / 35%);
+  --secondary-background: rgb(229 231 230 / 55%);
+  --soft-secondary-background: rgb(229 231 230 / 40%);
+  --xsoft-secondary-background: rgb(250 249 246 / 30%);
+  --cards-color: rgb(250 249 246 / 75%);
+  --hover-background: rgb(218 222 222 / 75%);
+  --input-background: rgb(250 249 246 / 75%);
+
+  --main-color: #2456c5;
+  --secondary-main-color: #416fce;
+  --tertiary-main-color: #a66a2c;
+  --main-color-hover: #1945a8;
+  --main-color-soft: rgb(36 86 197 / 12%);
+  --hover-color: #315fb9;
+
+  --main-text-color: #202a38;
+  --secondary-text-color: #465363;
+  --muted-text-color: #657181;
+
+  --success-color: #237a4b;
+  --error-color: #c83c43;
+  --warning-color: #94600e;
+  --info-color: #176b91;
+
+  --border-color: #cbd0d2;
+  --border-color-hover: #a5afb5;
+  --focus-color: #416fce;
+
+  --shadow-card: 0 4px 16px rgb(31 41 55 / 9%);
+  --shadow-dropdown: 0 8px 24px rgb(31 41 55 / 16%);
+  --shadow-glow: 0 0 20px rgb(36 86 197 / 14%);
+}
+
+:root.theme-light body {
+  /* Aquí he probado otro método para conseguir el efecto de un color encima, que me parece mejor que añadir una capa como cuando empecé */
+
+  background-image:
+    linear-gradient(rgb(241 244 249 / 20%), rgb(241 244 249 / 70%)),
+    url("../assets/images/background/background.png");
+}
+
+:root.theme-light .footerIcos {
+  background-color: var(--secondary-main-color);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-lg);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-card);
 }
 
 * {
@@ -198,6 +251,40 @@ header {
   background-color: var(--hover-color);
   transform: scale(1.1);
   box-shadow: 0 0 0 3px var(--main-color-soft);
+}
+
+/* Añadimos una nueva clase para añadir el cambio de estilo a la página para cambiar de modo oscuro a modo claro*/
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-4);
+
+  /* He optado por añadirle un tamaño mínimo porque en index se ve estupendo, pero en las otras me da problemas porque comparte espacio con otros elementos.*/
+
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  flex-shrink: 0;
+
+  background-color: var(--secondary-background);
+  color: var(--main-text-color);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--radius-md);
+
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-normal),
+    background-color var(--transition-normal);
+}
+
+.themeToggle:hover {
+  transform: rotate(15deg) scale(1.2);
+  background-color: var(--hover-background);
 }
 
 main {
@@ -351,6 +438,7 @@ footer {
 }
 
 .contactFooterBtn {
+  /* Con esto evitamos que el texto salte a una segunda línea si en un futuro queremos cambiar algo */
   white-space: nowrap;
 }
 
@@ -963,6 +1051,7 @@ footer {
   }
 
   /* Cambiamos el orden a columna para que en movil todo se vea en vertical */
+
   .productImgPrices {
     display: flex;
     flex-direction: column;
@@ -971,7 +1060,8 @@ footer {
     padding-bottom: var(--spacing-6);
   }
 
-  /* Los separamos para poder cambiar su posicion */
+  /* Los separamos para poder cambiar su posicion y ordenarlos a nuestro gusto */
+
   .namePrices {
     display: contents;
   }
