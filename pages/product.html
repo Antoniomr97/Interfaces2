@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PriceSlice</title>
+    <link
+      rel="icon"
+      href="../assets/images/ico/favicon.ico"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="PriceSlice: compara precios y encuentra las mejores ofertas."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="../scripts/main.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerLeft">
+        <div class="logo">
+          <a href="../index.html">
+            <img
+              class="logoImg"
+              src="../assets/images/logo/logo.png"
+              alt="logoPriceSlice"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="headerRight">
+        <input
+          type="text"
+          placeholder="Busqueda"
+          name="gameInputGameHeader"
+          id="gameInputGameHeader"
+          class="gameInputGameHeader block w-full mt-6 mb-4 px-4 py-2 font-sans text-base text-white bg-[#0e131d] border border-[#303a4c] rounded-lg outline-none transition-all duration-300 placeholder:text-[#737f93] hover:border-[#46536a] focus:border-[#4678ff] focus:ring-[3px] focus:ring-[#1254f3]/15"
+        />
+        <div
+          class="btnHeaderGames headerButton flex flex-row items-center justify-center gap-1 w-auto h-auto px-5 py-2 text-lg font-bold rounded-lg cursor-pointer bg-blue-600 text-white mr-5 transition-all duration-300 hover:bg-blue-500 hover:scale-110 hover:shadow-[0_0_0_3px_rgb(18_84_243_/_15%)]"
+        >
+          Favoritos
+        </div>
+        <div
+          class="btnHeaderGames headerButton flex flex-row items-center justify-center gap-1 w-auto h-auto px-5 py-2 text-lg font-bold rounded-lg cursor-pointer bg-blue-600 text-white mr-5 transition-all duration-300 hover:bg-blue-500 hover:scale-110 hover:shadow-[0_0_0_3px_rgb(18_84_243_/_15%)]"
+        >
+          Vermillion
+          <img
+            src="../assets/images/icons/person.svg"
+            alt="User"
+            class="userIco"
+          />
+        </div>
+        <button class="headerMenuIcon" aria-label="Abrir menú">
+          <img
+            src="../assets/images/icons/menu.svg"
+            alt="Menu Desplegable"
+            class="menuIco"
+          />
+        </button>
+      </div>
+    </header>
+    <main class="productMain">
+      <section class="productSection">
+        <div class="productPage" id="productPage">
+          <div class="productImgPrices">
+            <!-- Portada -->
+            <div class="productImgContainer">
+              <img
+                src="https://image.api.playstation.com/vulcan/ap/rnd/202501/2217/e5833a53529ff9879e87689f1e8b04d45ba7e6c97fa791e2.png"
+                alt="Portada Expedition 33"
+                class="productImg"
+              />
+            </div>
+
+            <!-- Nombre, precio y plataforma -->
+            <div class="namePrices">
+              <div class="productName">
+                <span class="productTitle">Expedition 33</span>
+                <img
+                  src="../assets/images/icons/heart.svg"
+                  alt="Icono Favoritos"
+                  class="favouriteIco"
+                />
+              </div>
+
+              <div class="productPrice">
+                <p class="productPrimary">
+                  Precio actual: <span class="secondaryCTA">25.99€</span>
+                </p>
+                <p class="productPrimary">
+                  Plataforma:
+                  <span class="secondaryCTA productPlatform">PS4</span
+                  ><span class="secondaryCTA productPlatform">PS5</span>
+                </p>
+              </div>
+            </div>
+
+            <!-- Los descuentos aqui para aprovechar hueco -->
+            <div class="discountGraph">
+              <div class="productDiscounts">
+                <p class="productSecondary">
+                  El precio mínimo es de:
+                  <span class="mainCTA">17.99€</span>
+                </p>
+
+                <p class="productSecondary">
+                  El descuento actual es de:
+                  <span class="tertiaryCTA">56.68%</span>
+                </p>
+
+                <p class="productSecondary">
+                  El descuento máximo es de:
+                  <span class="tertiaryCTA">70.01%</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gráfica debajo de las tres columnas -->
+          <div class="productGraph">
+            <img
+              src="../assets/images/img/graph.png"
+              alt="Gráfica de descuento"
+              class="productGraphImg"
+            />
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footerContent">
+        <p>©PriceSlice 2026</p>
+        <p class="contactFooterBtn"><a href="">Contactanos</a></p>
+      </div>
+      <div class="footerIcos">
+        <img
+          src="../assets/images/icons/discord.svg"
+          alt="Discord"
+          class="discordIco"
+        />
+        <img
+          src="../assets/images/icons/instagram.svg"
+          alt="Instagram"
+          class="instagramIco"
+        />
+        <img
+          src="../assets/images/icons/twitter-x.svg"
+          alt="Twitter-X"
+          class="twitterIco"
+        />
+      </div>
+    </footer>
+  </body>
+</html>
